@@ -1,9 +1,6 @@
 package com.wolf.ue.enchantments.init;
 
-import com.wolf.ue.enchantments.DeathAversionEnchantment;
-import com.wolf.ue.enchantments.EcologicalEnchantment;
-import com.wolf.ue.enchantments.FocusImpactEnchantment;
-import com.wolf.ue.enchantments.SpartanWeaponEnchantment;
+import com.wolf.ue.enchantments.*;
 import com.wolf.ue.enchantments.curse.ComboStarEnchantment;
 import com.wolf.ue.enchantments.curse.EnderTeleportEnchantment;
 import com.wolf.ue.enchantments.curse.PestilencesOdiumEnchantment;
@@ -24,6 +21,7 @@ public class RegisterEnchantments {
     public static final RegistryObject<Enchantment> ECOLOGICAL = REGISTRY.register("ecological", EcologicalEnchantment::new);
     public static final RegistryObject<Enchantment> FOCUS_IMPACT = REGISTRY.register("focus_impact", FocusImpactEnchantment::new);
     public static final RegistryObject<Enchantment> SPARTAN_WEAPON = REGISTRY.register("spartan_weapon", SpartanWeaponEnchantment::new);
+    public static final RegistryObject<Enchantment> VITAE = REGISTRY.register("vitae", VitaeEnchantment::new);
 
     public static void register(IEventBus bus) {
         REGISTRY.register(bus);
