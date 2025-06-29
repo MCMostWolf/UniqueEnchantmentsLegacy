@@ -1,7 +1,7 @@
 package com.wolf.ue.event;
 
 import com.wolf.ue.enchantments.init.RegisterEnchantments;
-import com.wolf.ue.linkage.AlexsCaves;
+import com.wolf.ue.linkage.AlexsCavesLinkage;
 import com.wolf.ue.util.AttributeManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -78,7 +78,7 @@ public class EnchantmentEventHandler {
 
             }
             if (ModList.get().isLoaded("alexscaves")) {
-                AlexsCaves.enderTeleportAC(stack, player);
+                AlexsCavesLinkage.enderTeleportAC(stack, player);
             }
             stack.setCount(0);
         }

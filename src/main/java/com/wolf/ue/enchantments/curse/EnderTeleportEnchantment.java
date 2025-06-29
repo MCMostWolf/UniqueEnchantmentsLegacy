@@ -1,7 +1,7 @@
 package com.wolf.ue.enchantments.curse;
 
 import com.mcmostwolf.enchantmentlib.api.BasicEnchantment;
-import com.wolf.ue.linkage.AlexsCaves;
+import com.wolf.ue.linkage.AlexsCavesLinkage;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -19,7 +19,7 @@ public class EnderTeleportEnchantment extends BasicEnchantment {
     public boolean canApplyAtEnchantingTable(@NotNull ItemStack stack) {
         Ingredient ingredient = Ingredient.of(new ItemStack(Items.FILLED_MAP));
         if (ModList.get().isLoaded("alexscaves")) {
-            ingredient = AlexsCaves.mapAndAcMapIngredient();
+            ingredient = AlexsCavesLinkage.mapAndAcMapIngredient();
         }
         return ingredient.test(stack);
     }
