@@ -7,12 +7,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import org.jetbrains.annotations.Nullable;
 
-@UtilityClass // 请不要 import static
+@UtilityClass // 不要 import static
 public class EnchantmentUtil {
     @Getter
-    private static @Nullable ItemStack enchantmentArmor; // EnchantmentUtil#hasArmorEnchantment(Iterable<ItemStack>,Enchantment) 检查后再使用
+    private @Nullable ItemStack enchantmentArmor; // EnchantmentUtil#hasArmorEnchantment(Iterable<ItemStack>,Enchantment) 检查后再使用
     @Getter
-    private static @Nullable ItemStack maxEnchantmentArmor;
+    private @Nullable ItemStack maxEnchantmentArmor;
 
     /**
      * 任意一件护甲存在某一附魔返回true
