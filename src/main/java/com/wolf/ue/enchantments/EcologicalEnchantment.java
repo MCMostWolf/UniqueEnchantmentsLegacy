@@ -6,12 +6,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import org.jetbrains.annotations.NotNull;
 
-public class DeathAversion extends BasicEnchantment {
-    public DeathAversion(EquipmentSlot... slots) {
-        super(EnchantmentCategory.ARMOR, slots, Rarity.UNCOMMON, true, false, true, true, 1);
+public class EcologicalEnchantment extends BasicEnchantment {
+    public EcologicalEnchantment(EquipmentSlot... slots) {
+        super(EnchantmentCategory.ARMOR, slots, Rarity.RARE, true, false, true, false, 3);
     }
+
     @Override
     public boolean canApplyAtEnchantingTable(@NotNull ItemStack stack) {
-        return true;
+        return stack.isDamageableItem();
     }
 }

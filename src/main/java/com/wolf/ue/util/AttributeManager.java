@@ -5,8 +5,9 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
-import java.util.Objects;
 import java.util.UUID;
+
+import static java.util.Objects.requireNonNull;
 
 public class AttributeManager {
     public static final String DEATH_AVERSION_MODIFIER_NAME = "death_aversion_modifier";
@@ -24,12 +25,14 @@ public class AttributeManager {
             COMBO_STAR_MODIFIER_NAME,
             0.1,
             AttributeModifier.Operation.MULTIPLY_TOTAL);
+
     public static void addModifierSafety(LivingEntity livingEntity, Attribute attribute, AttributeModifier attributeModifier) {
         AttributeInstance attributeInstance = livingEntity.getAttribute(attribute);
         if (attributeInstance != null && !attributeInstance.hasModifier(attributeModifier)) {
-            Objects.requireNonNull(livingEntity.getAttribute(attribute)).addPermanentModifier(attributeModifier);
+            requireNonNull(livingEntity.getAttribute(attribute)).addPermanentModifier(attributeModifier);
         }
     }
+
     public static void removeModifierSafety(LivingEntity livingEntity, Attribute attribute, UUID attributeModifierId) {
         AttributeInstance attributeInstance = livingEntity.getAttribute(attribute);
         if (attributeInstance != null && attributeInstance.getModifier(attributeModifierId) != null) {
@@ -49,8 +52,7 @@ public class AttributeManager {
         AttributeInstance attributeInstance = livingEntity.getAttribute(attribute);
         if (attributeInstance != null && attributeInstance.getModifier(modifierId) != null) {
             return attributeInstance.getModifier(modifierId);
-        }
-        else {
+        } else {
             return null;
         }
     }

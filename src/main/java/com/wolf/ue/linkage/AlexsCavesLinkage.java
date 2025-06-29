@@ -10,10 +10,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-public class AlexsCaves {
+public class AlexsCavesLinkage {
     public static Ingredient mapAndAcMapIngredient() {
-        return Ingredient.of(new ItemStack(ACItemRegistry.CAVE_MAP.get()),new ItemStack(Items.FILLED_MAP));
+        return Ingredient.of(new ItemStack(ACItemRegistry.CAVE_MAP.get()), new ItemStack(Items.FILLED_MAP));
     }
+
     public static void enderTeleportAC(ItemStack stack, Player player) {
         if (stack.getItem() instanceof CaveMapItem) {
             BlockPos position;
