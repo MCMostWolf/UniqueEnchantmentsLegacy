@@ -3,7 +3,6 @@ package com.wolf.ue.event;
 import com.wolf.ue.enchantments.init.RegisterEnchantments;
 import com.wolf.ue.linkage.AlexsCavesLinkage;
 import com.wolf.ue.util.AttributeManager;
-import com.wolf.ue.util.EnchantmentUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -37,7 +36,6 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static com.wolf.ue.UniqueEnchantments.MODID;
 import static com.wolf.ue.util.AttributeManager.DEATH_AVERSION_MODIFIER_UUID;
@@ -111,6 +109,7 @@ public class EnchantmentEventHandler {
                 }
             }
         }
+
     }
 
     @SubscribeEvent
@@ -206,21 +205,6 @@ public class EnchantmentEventHandler {
                     event.setAmount(event.getAmount() * (1 + 2 * level));
                 }
             }
-        }
-    }
-
-    /**
-     * 鲜活
-     */
-    @SubscribeEvent
-    public static void doVitaeEnchantment(LivingEquipmentChangeEvent event) {
-        var entity = event.getEntity();
-        if (entity.level().isClientSide) return;
-        var armorMaxLevel = EnchantmentUtil.findArmorHasMaxLevel(entity.getArmorSlots(), RegisterEnchantments.VITAE.get());
-        if (armorMaxLevel > 0) {
-            Optional.ofNullable(entity.getAttribute(Attributes.MAX_HEALTH)).ifPresent(action -> {
-                action.setBaseValue(action.getValue() + armorMaxLevel);
-            });
         }
     }
 

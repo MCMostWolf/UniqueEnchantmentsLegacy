@@ -37,7 +37,7 @@ public class EnchantmentUtil {
     public int findArmorHasMaxLevel(Iterable<ItemStack> armorSlots, Enchantment enchantment) {
         var maxLevel = 0;
         for (var armorSlot : armorSlots) {
-            if (armorSlot.getAllEnchantments().containsKey(enchantment)) {
+            if (!armorSlot.getAllEnchantments().containsKey(enchantment)) {
                 continue;
             }
             if (maxLevel < armorSlot.getEnchantmentLevel(enchantment)) {
